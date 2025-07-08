@@ -58,7 +58,8 @@ chmod +x ping_rrd_script_7days-TEMPLATE.sh
 Open the script `ping_rrd_script_7days-TEMPLATE.sh` and edit the `HOSTS` array:
 
 ```bash
-HOSTS=("google.com" "chatgpt.com" "20min.ch" "swisscom.ch")
+HOSTS=("google.com" "chatgpt.com" "20min.ch" "swisscom.com" "youtube.com")
+
 ```
 
 Up to 8 hosts are supported. Each host will be assigned a different color in the graphs.
