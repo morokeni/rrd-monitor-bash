@@ -8,7 +8,7 @@ VERSION='1.0'
 DEBUG=true
 SCRIPT_NAME=$(basename "$0" .sh)
 
-HOSTS=("google.com" "youtube.com" "chatgpt.com" "facebook.com" "20min.ch" "instagram.com" "linkedin.com" "live.com" )
+HOSTS=("google.com" "youtube.com" "chatgpt.com" "facebook.com" "20min.ch" "instagram.com" "linkedin.com" "live.com")
 
 COLORS=("FF0000" "00FF00" "0000FF" "FFFF00" "FF00FF" "00FFFF" "800000" "808080") # Up to 8 colors
 
