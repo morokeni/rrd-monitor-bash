@@ -4,19 +4,14 @@ VERSION='1.0'
 ## Changelog
 # 1.0 - Inital version
 
-
 DEBUG=true
 SCRIPT_NAME=$(basename "$0" .sh)
 
 HOSTS=("google.com" "youtube.com" "chatgpt.com" "facebook.com" "20min.ch" "instagram.com" "linkedin.com" "live.com")
-
 COLORS=("FF0000" "00FF00" "0000FF" "FFFF00" "FF00FF" "00FFFF" "800000" "808080") # Up to 8 colors
 
-
 RRD_FILE="${SCRIPT_NAME}-${#HOSTS[@]}.rrd"
-
 INTERVAL=30  # Measurement interval in seconds, must evenly divide 60
-
 DURATION_24H=86400  # 24 hours in seconds
 DURATION_7D=604800  # 7 days in seconds
 
@@ -26,7 +21,6 @@ if ! command -v rrdtool &>/dev/null; then
     echo "Error: 'rrdtool' is not installed. Please install it to use this script."
     exit 1
 fi
-
 
 # Function to create RRD file dynamically
 function create_rrd_file() {
@@ -48,7 +42,6 @@ function create_rrd_file() {
 }
 
 
-
 function update_rrd_database_once() {
     PING_TIMES=()
     for HOST in "${HOSTS[@]}"; do
@@ -68,6 +61,7 @@ function update_rrd_database_daemon() {
         sleep $INTERVAL
     done
 }
+
 
 function configure_cronjob() {
     # Calculate the number of iterations (N) for the given INTERVAL
@@ -105,8 +99,7 @@ function create_graphs() {
         DEF_ARGS+=(DEF:host$((i+1))=$RRD_FILE:host$((i+1)):AVERAGE)
         LINE_ARGS+=(LINE1:host$((i+1))#${COLORS[i]}:"$((i+1))\:${HOSTS[i]}")
     done
-
-
+    
     TIMESTAMP=" $(date '+%Y-%m-%d %H:%M')"
     # 24-hour graph
     rrdtool graph $OUTPUT_24H \
@@ -122,7 +115,6 @@ function create_graphs() {
         "${LINE_ARGS[@]}"
     echo "Graph for last 24 hours created at $OUTPUT_24H"
 
-
     # Generate the graph for 7 days with a date overlay
     rrdtool graph $OUTPUT_7D \
         --start end-$DURATION_7D --end now \
@@ -133,9 +125,6 @@ function create_graphs() {
         --lower-limit 0 \
         "${DEF_ARGS[@]}" \
         "${LINE_ARGS[@]}"
-#     echo "Graph for last 7 days created at $OUTPUT_7D"
-
-
 }
 
 # Function to create and display graphs using feh
@@ -146,7 +135,6 @@ function create_graph_and_show() {
     fi
 
     create_graphs
-
     local TIMESTAMP=$(date +"%Y%m%d_%H%M")
     local OUTPUT_24H="${TIMESTAMP}_ping_24h.png"
     local OUTPUT_7D="${TIMESTAMP}_ping_7d.png"
@@ -191,6 +179,5 @@ case "$1" in
         else
             echo -e "\nDatabase:$RRD_FILE "
         fi
-
         ;;
 esac
