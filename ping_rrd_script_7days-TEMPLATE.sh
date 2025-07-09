@@ -12,32 +12,6 @@ HOSTS=("google.com" "youtube.com" "chatgpt.com" "facebook.com" "20min.ch" "insta
 
 COLORS=("FF0000" "00FF00" "0000FF" "FFFF00" "FF00FF" "00FFFF" "800000" "808080") # Up to 8 colors
 
-#pnac.swisstopo.admin.ch
-#– Kernsystem für das AGNES-Netzwerk (swisstopo PNAC), in das Zimmerwald per NTRIP-Stream integriert ist (Monitoring, Referenz­koordinaten).
-#
-#swipos.ch
-#– SWIPOS-Portal für Offline-RINEX-Downloads und nachträgliche Positionierung; essentiell für Post-Processing der Zimmerwald-Daten.
-#
-#igs-ip.net
-#– Globaler IGS-NTRIP-Caster: liefert Echtzeit-Korrekturen und Rohdaten aller IGS-Stationen, darunter auch Zimmerwald.
-#
-#products.igs-ip.net
-#– IGS-Products-Caster: synchronisierte Produkte (SSR-Korrekturen, präzise Ephemeriden), genutzt für hochgenaue Auswertungen der Zimmerwald-Station.
-#
-#mgex.igs-ip.net
-#– MGEX-NTRIP-Caster des IGS Multi-GNSS-Experiments; wichtig, wenn Zimmerwald-Empfänger Multi-GNSS-Signale verarbeiten.
-#
-#euref-ip.net
-#– Europäischer EUREF-IP-Caster (BKG-Instanz): zusätzliche regionale Korrekturdaten zur Absicherung und Vergleich.
-#
-#register.rtcm-ntrip.org
-#– Zentrale Registrierungs­stelle für NTRIP-Zugänge (EUREF/IP & IGS); wichtig für Verwaltung von Nutzer­accounts und Zugriffs­rechte.
-#
-#ntrip.gnsslab.cn
-#– China-NTRIP-Caster (Wuhan); nur relevant, wenn man globale Multi-GNSS-Vergleiche mit chinesischen Stationen benötigt.
-#
-
-
 
 RRD_FILE="${SCRIPT_NAME}-${#HOSTS[@]}.rrd"
 
