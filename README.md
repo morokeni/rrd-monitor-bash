@@ -118,13 +118,12 @@ Creates two `.png` files showing response times:
 Opens both graphs in a graphical image viewer (`feh` must be installed).
 
 ---
-
+ 
 ## 🧪 Example Output
 
-TODO - Add a screenshot after generating your first graph:
 
 ```text
-📷 [example_ping_24h.png]
+📷 [20250710_2108_ping_24h.png]
 ```
 
 ---
