@@ -121,7 +121,7 @@ Opens both graphs in a graphical image viewer (`feh` must be installed).
  
 ## 🧪 Example Output
 
- [20250710_2108_ping_24h.png]
+![Graph 24h](20250710_2108_ping_24h.png)
 
 
 ---
