@@ -121,10 +121,8 @@ Opens both graphs in a graphical image viewer (`feh` must be installed).
  
 ## 🧪 Example Output
 
+ [20250710_2108_ping_24h.png]
 
-```text
-📷 [20250710_2108_ping_24h.png]
-```
 
 ---
 
